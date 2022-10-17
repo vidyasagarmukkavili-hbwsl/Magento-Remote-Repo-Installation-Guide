@@ -1,15 +1,17 @@
-1. Command for dumping databse into a database file <db1-name_write-date-here-for-organization.mysql>
+**1. Command for dumping databse into a database file <db1-name_write-date-here-for-organization.mysql>**
 
 Command:
 
 ```mysqldump -u <msql-username> -p <db-name-to-copy-from>```
 
 Example:
+```
 mysqldump -u magento2 -p digiplus
+```
 
 ---
 
-2. Login into mysql in a new terminal instance.
+**2. Loging into mysql in a new terminal instance.**
 
 Inside mysql > Create New Database for your Project > Then run the following command to copy the database
 contents from the existing '<db1-name_write-date-here-for-organization.mysql>' database to the newly created database :
@@ -19,23 +21,24 @@ Command:
 
 ---
 
-3. Git clone the remote repository on your instance. (Typically it would be /var/www/html/<your-project-name>)
+**3. Git clone the remote repository on your instance. (Typically it would be /var/www/html/<your-project-name>)**
 
 Command:
-```git clone <github ssh repo link> <your-project-directory-name>```
+```
+git clone <github ssh repo link> <your-project-directory-name>
+```
 
-Example (assuming we are in /var/www/html/ ):
+**Example (assuming we are in /var/www/html/ ):**
+```
 git clone git@github.com:vidyasagarmukkavili-hbwsl/BlueMA.git blueMa
+```
 
-Known issue: Make sure your directory has the owner set as the actual owner with whom the SSH keys are
-
-registered with on GitHub;
-Because while trying to clone using as root/sudo/su, the SSH keys may not match as they may have
-been generated without sudo permissions by a different user such as a user.
+*Known issue: Make sure your directory has the owner set as the actual owner with whom the SSH keys are registered with on GitHub;
+Because while trying to clone using as root/sudo/su, the SSH keys may not match as they may have been generated without sudo permissions by a different user such as a user.*
 
 ---
 
-4. After cloning the files successfully, configure the hosts, nginx and database to point to the correct domain:
+**4. After cloning the files successfully, configure the hosts, nginx and database to point to the correct domain:**
 
    4.1 ```/etc/hosts``` should point to the correct location.
 
@@ -43,7 +46,9 @@ been generated without sudo permissions by a different user such as a user.
    Configure/Comment out the FastCGI part with #
 
    4.3 Make symlinks for the same in sites-enabled using the following command:
-   ```ln -s /etc/nginx/sites-available/<your-site-configuration-file-name>/etc/nginx/sites-enabled```
+   ```
+   ln -s /etc/nginx/sites-available/<your-site-configuration-file-name>/etc/nginx/sites-enabled
+   ```
 
    ```nginx -t```
    ^ to check if it is configured properly
@@ -66,7 +71,7 @@ been generated without sudo permissions by a different user such as a user.
 
 ---
 
-5. Connect the database to the git repository:
+**5. Connect the database to the git repository:**
 
 Open the project directory in code and copy the ```<magento-project-instance>/etc/config.php``` and
 ```<magento-project-instance>/etc/env.php``` from another working instance of magento project which was
@@ -74,14 +79,24 @@ manually installed with the setup commands.(preferrably from the original instal
 
 ## or get it from here ->
 
-6. Almost there! Dont forget to give all the relevant permissions to make it work:
+**6. Almost there! Dont forget to give all the relevant permissions to make it work:**
 
-```sudo find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +```
-```sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +```
-```sudo chown -R vidya_sagar_mukkavili:www-data .```
-```sudo chmod u+x bin/magento```
+```
+sudo find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+```
+```
+sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+```
+```
+sudo chown -R vidya_sagar_mukkavili:www-data .
+```
+```
+sudo chmod u+x bin/magento
+```
 
-```sudo chmod -R 777 var pub/static generated generated/```
+```
+sudo chmod -R 777 var pub/static generated generated/
+```
 
 ---
 
@@ -89,7 +104,7 @@ If everything is done correctly, setup is now done.
 
 ---
 
-Deploy to test the setup:
+**Deploy to test the setup:** 
 
 - Production Mode Deploy:
 
@@ -97,7 +112,7 @@ Deploy to test the setup:
 
 ```sudo php bin/magento cache:flush```
 
-######Make sure to remove maintainance.flag file in var folder in case of any issue with loading, like
+###### Make sure to remove maintainance.flag file in var folder in case of any issue with loading, like
 *Magento The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.*
 
 
