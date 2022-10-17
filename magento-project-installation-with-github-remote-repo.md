@@ -50,10 +50,14 @@ Because while trying to clone using as root/sudo/su, the SSH keys may not match 
    ln -s /etc/nginx/sites-available/<your-site-configuration-file-name>/etc/nginx/sites-enabled
    ```
 
-   ```nginx -t```
+   ```
+   nginx -t
+   ```
    ^ to check if it is configured properly
 
-   ```systemctl restart nginx```
+   ```
+   systemctl restart nginx
+   ```
    ^ to restart the nginx service
 
    4.4 Update the core_config_data in the database with the new baseurl for the website using sql commands
@@ -77,7 +81,7 @@ Open the project directory in code and copy the ```<magento-project-instance>/et
 ```<magento-project-instance>/etc/env.php``` from another working instance of magento project which was
 manually installed with the setup commands.(preferrably from the original installation working directory)
 
-or get it from here -> 
+or get it from here ->  https://github.com/vidyasagarmukkavili-hbwsl/Magento-Remote-Repo-Installation-Guide/tree/master/app/etc
 
 **6. Almost there! Dont forget to give all the relevant permissions to make it work:**
 
@@ -137,4 +141,6 @@ sudo php bin/magento cache:flush
 
 - Developer Mode Deploy:
 
-```sudo php bin/magento deploy:mode:set developer```
+```
+sudo php bin/magento deploy:mode:set developer
+```
