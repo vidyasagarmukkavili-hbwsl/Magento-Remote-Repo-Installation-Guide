@@ -40,12 +40,12 @@ Because while trying to clone using as root/sudo/su, the SSH keys may not match 
 
 **4. After cloning the files successfully, configure the hosts, nginx and database to point to the correct domain:**
 
-   4.1 ```/etc/hosts``` should point to the correct location.
+   &emsp;4.1 ```/etc/hosts``` should point to the correct location.
 
-   4.2 ```/etc/ngin-x/sites-available``` should have a configuration for the port.
+   &emsp;4.2 ```/etc/ngin-x/sites-available``` should have a configuration for the port.
    Configure/Comment out the FastCGI part with #
 
-   4.3 Make symlinks for the same in sites-enabled using the following command:
+   &emsp;4.3 Make symlinks for the same in sites-enabled using the following command:
    ```
    ln -s /etc/nginx/sites-available/<your-site-configuration-file-name>/etc/nginx/sites-enabled
    ```
@@ -60,7 +60,7 @@ Because while trying to clone using as root/sudo/su, the SSH keys may not match 
    ```
    ^ to restart the nginx service
 
-   4.4 Update the core_config_data in the database with the new baseurl for the website using sql commands
+   &emsp;4.4 Update the core_config_data in the database with the new baseurl for the website using sql commands
    with the update set quierries :
 
    Command Example:
@@ -120,7 +120,7 @@ sudo php bin/magento deploy:mode:set production
 sudo php bin/magento cache:flush
 ```
 
-###### Make sure to remove maintainance.flag file in var folder in case of any issue with loading, like
+## Make sure to remove maintainance.flag file in var folder in case of any issue with loading, like
 *Magento The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.*
 
 
