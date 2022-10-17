@@ -77,7 +77,7 @@ Open the project directory in code and copy the ```<magento-project-instance>/et
 ```<magento-project-instance>/etc/env.php``` from another working instance of magento project which was
 manually installed with the setup commands.(preferrably from the original installation working directory)
 
-## or get it from here ->
+or get it from here -> 
 
 **6. Almost there! Dont forget to give all the relevant permissions to make it work:**
 
@@ -100,7 +100,7 @@ sudo chmod -R 777 var pub/static generated generated/
 
 ---
 
-If everything is done correctly, setup is now done.
+If everything is done correctly, the setup is now complete.
 
 ---
 
@@ -108,18 +108,30 @@ If everything is done correctly, setup is now done.
 
 - Production Mode Deploy:
 
-```sudo php bin/magento deploy:mode:set production```
+```
+sudo php bin/magento deploy:mode:set production
+```
 
-```sudo php bin/magento cache:flush```
+```
+sudo php bin/magento cache:flush
+```
 
 ###### Make sure to remove maintainance.flag file in var folder in case of any issue with loading, like
 *Magento The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.*
 
 
-```sudo php bin/magento indexer:reindex```
-```sudo php bin/magento setup:upgrade```
-```sudo php bin/magento setup:static-content:deploy -f```
-```sudo php bin/magento cache:flush```
+```
+sudo php bin/magento indexer:reindex
+```
+```
+sudo php bin/magento setup:upgrade
+```
+```
+sudo php bin/magento setup:static-content:deploy -f
+```
+```
+sudo php bin/magento cache:flush
+```
 
 ---
 
