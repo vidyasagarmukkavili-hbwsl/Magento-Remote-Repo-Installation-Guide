@@ -79,7 +79,8 @@ sudo composer install
    ^ to restart the nginx service
 
    &emsp;**4.4** Update the core_config_data in the database with the new baseurl for the website using sql commands
-   with the update set where quiery :
+   
+   with the update set where querry:
 
    Command Example:
 
