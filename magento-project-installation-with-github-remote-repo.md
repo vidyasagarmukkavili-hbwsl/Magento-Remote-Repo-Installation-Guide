@@ -32,6 +32,10 @@ Command:
 
 **3. Git clone the remote repository on your instance. (Typically it would be /var/www/html/<your-project-name>)**
 
+Create your project directory inside /var/www/html and give it appropriate permissions.
+
+```/var/www/html/<your-project-directory-name>```
+
 Command:
 ```
 git clone <github ssh repo link> <your-project-directory-name>
@@ -50,9 +54,23 @@ Because while trying to clone using as root/sudo/su, the SSH keys may not match 
 
 ## Composer Install:
 
+Use this command to install all dependencies of the magento project with the help of composer:
+
 ```
 sudo composer install
 ```
+
+or use the below command:
+
+**Make sure to not delete the composer lock file if th method mentioned below is used:**
+
+```
+sudo composer upgrade
+```
+
+There may be some dependencies which may not work due to php version mismatch of the project and the current version that is available on the machine. So make sure to have the correct version of php installed on your machine along with all the php modules that are required for magento. 
+
+Refer to the 'Installing Magento with Nginx Server' documentation to check for the names of all the required php modules.
 
 ---
 
@@ -88,6 +106,13 @@ sudo composer install
    update core_config_data
    set value='http://bluema.magento.com/'
    where path='web/unsecure/base_url';
+   ```
+
+
+   ```
+   update core_config_data
+   set value='http://bluema.magento.com/'
+   where path='web/secure/base_url';
    ```
 
    *Change the set value to the correct domain and subdomains.*
