@@ -36,6 +36,12 @@ git clone git@github.com:vidyasagarmukkavili-hbwsl/BlueMA.git blueMa
 *Known issue: Make sure your directory has the owner set as the actual owner with whom the SSH keys are registered with on GitHub;
 Because while trying to clone using as root/sudo/su, the SSH keys may not match as they may have been generated without sudo permissions by a different user such as a user.*
 
+## Composer Install:
+
+```
+sudo composer install
+```
+
 ---
 
 **4. After cloning the files successfully, configure the hosts, nginx and database to point to the correct domain:**
